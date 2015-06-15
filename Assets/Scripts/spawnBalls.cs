@@ -3,10 +3,10 @@ using System.Collections;
 
 public class spawnBalls : MonoBehaviour {
     public int numberOfBalls;
-    public GameObject[] ballsPrefabs = new GameObject[4];
+    public GameObject[] ballsPrefabs = new GameObject[5];
 
     public float delay;
-    
+    int counter = 0;
     float gameTime;
 	// Use this for initialization
 	void Start () {
@@ -18,10 +18,17 @@ public class spawnBalls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    gameTime += Time.deltaTime;
+        if (counter > 5 && numberOfBalls != 5)
+        {
+            numberOfBalls = 5;
+            GameObject.FindWithTag("cubes").SendMessage("changeNumberOfBalls", numberOfBalls);
+        }
+
 
 		if (gameTime >= delay) {
-			gameTime = 0;
-			Instantiate(ballsPrefabs[Random.Range(0,numberOfBalls)], transform.position, Quaternion.identity);
+            counter++;
+            gameTime = 0;
+            Instantiate(ballsPrefabs[Random.Range(0,numberOfBalls)], transform.position, Quaternion.identity);
 		}
         //TODO: send number of balls
 	}
