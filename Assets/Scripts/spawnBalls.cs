@@ -6,6 +6,7 @@ public class spawnBalls : MonoBehaviour {
     public GameObject[] ballsPrefabs = new GameObject[5];
     public float ballMoveSpeed;
     public int ballsToNextStage;
+    public float ballSpeedIncrease;
     public int ballsToSpeedIncrease;
     public float maxBallSpeed;
 
@@ -36,7 +37,7 @@ public class spawnBalls : MonoBehaviour {
             ball.transform.localScale *= (float)Screen.width / Screen.height;
             if (counter % ballsToSpeedIncrease == 0 && ballMoveSpeed <= maxBallSpeed)
             {
-                ballMoveSpeed += 0.5f;
+                ballMoveSpeed += ballSpeedIncrease;
             }
             ball.transform.SendMessage("ChangeSpeed", ballMoveSpeed);
 		}
