@@ -13,4 +13,9 @@ public class moveBalls : MonoBehaviour {
 	void Update () {
         transform.Translate(Vector2.down * speed * Time.deltaTime);
 	}
+
+    public void ChangeSpeed(int newSpeed)
+    {
+        speed = newSpeed;
+    }
 }
