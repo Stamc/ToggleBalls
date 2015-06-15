@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class deathBall : MonoBehaviour {
-    public GameObject scoreTextGameObject;
+
 	// Use this for initialization
 	void Start () {
+
 	
 	}
 	
@@ -16,9 +17,14 @@ public class deathBall : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == transform.tag)
+        {
             GameObject.FindWithTag("ScoreText").SendMessage("ChangeScore", 1);
-        
-        Destroy(gameObject);
+            
+        }
+        else
+            GameObject.FindWithTag("HealthText").SendMessage("LooseHealth", 1);
+        if (!GameObject.FindWithTag("HealthText").transform.GetComponent<healthText>().isDead())
+            Destroy(gameObject);
     }
 
 }

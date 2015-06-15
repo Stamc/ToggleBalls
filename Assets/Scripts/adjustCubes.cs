@@ -31,7 +31,7 @@ public class adjustCubes : MonoBehaviour {
                     //we find the hit cube and set its middle flag to true
                     for (int i = 0; i < numberOfBalls; i++)
                     {
-                        Debug.Log("hit cube:" + hit.transform.tag + " i: " + i + " cubes[i]: " + cubes[i].transform.tag);
+                        //Debug.Log("hit cube:" + hit.transform.tag + " i: " + i + " cubes[i]: " + cubes[i].transform.tag);
                         if (cubes[i].transform.tag == hit.transform.tag)
                         {
                             middleCube[i] = true;
@@ -59,24 +59,31 @@ public class adjustCubes : MonoBehaviour {
 
     public void changeNumberOfBalls(int number)
     {
+        float ratio = (float)Screen.width / (float)Screen.height;
+        //Debug.Log("Ratio: " + ratio);
         if (number == 3)
         {
             numberOfBalls = number;
             cubes[0].transform.position = new Vector3(0, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[0].transform.localScale *= ratio;
             middleCube[0] = true;
-            cubes[1].transform.position = new Vector3(2, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[1].transform.position = new Vector3(2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[1].transform.localScale *= ratio;
             middleCube[1] = false;
-            cubes[2].transform.position = new Vector3(-2, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[2].transform.position = new Vector3(-2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[2].transform.localScale *= ratio;
             middleCube[2] = false;
         }
         else if (number == 5)
         {
             numberOfBalls = number;
             cubes[3].SetActive(true);
-            cubes[3].transform.position = new Vector3(4, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[3].transform.position = new Vector3(2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[3].transform.localScale *= ratio;
             middleCube[3] = false;
             cubes[4].SetActive(true);
-            cubes[4].transform.position = new Vector3(-4, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[4].transform.position = new Vector3(-2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize * 2 / 10, 0);
+            cubes[4].transform.localScale *= ratio;
             middleCube[4] = false;
         }
     }

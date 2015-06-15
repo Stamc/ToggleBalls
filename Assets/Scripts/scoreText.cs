@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class scoreText : MonoBehaviour {
     int score = 0;
+    
 	// Use this for initialization
 	void Start () {
 	    
@@ -15,11 +16,14 @@ public class scoreText : MonoBehaviour {
 	}
 
     Text canvasScore;
+    
 
     void ChangeScore(int change)
     {
-        score += change;
+        score+= change;
         canvasScore = GetComponent<Text>();
         canvasScore.text = score.ToString();
     }
+
+
 }

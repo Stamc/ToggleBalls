@@ -18,18 +18,18 @@ public class spawnBalls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    gameTime += Time.deltaTime;
-        if (counter > 5 && numberOfBalls != 5)
+        if (counter > 10 && numberOfBalls != 5)
         {
             numberOfBalls = 5;
             GameObject.FindWithTag("cubes").SendMessage("changeNumberOfBalls", numberOfBalls);
         }
 
-
+        GameObject ball;
 		if (gameTime >= delay) {
             counter++;
             gameTime = 0;
-            Instantiate(ballsPrefabs[Random.Range(0,numberOfBalls)], transform.position, Quaternion.identity);
+            ball = (GameObject)Instantiate(ballsPrefabs[Random.Range(0,numberOfBalls)], transform.position, Quaternion.identity);
+            ball.transform.localScale *= (float)Screen.width / Screen.height;
 		}
-        //TODO: send number of balls
 	}
 }
