@@ -20,7 +20,7 @@ obj/
 *.booproj
 
 *.exe
-SandQueens_Data/
+ToggleBalls_Data/
 
 # ============ #
 # OS generated #
