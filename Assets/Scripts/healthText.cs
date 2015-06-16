@@ -6,7 +6,7 @@ public class healthText : MonoBehaviour {
     int health = 3;
     Text canvasHealth;
     public GameObject retryButton;
-    
+
 	// Use this for initialization
 	void Start () {
 	

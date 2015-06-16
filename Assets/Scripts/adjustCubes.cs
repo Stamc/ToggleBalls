@@ -64,26 +64,26 @@ public class adjustCubes : MonoBehaviour {
         if (number == 3)
         {
             numberOfBalls = number;
-            cubes[0].transform.position = new Vector3(0, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
-            cubes[0].transform.localScale = new Vector3(cubes[0].transform.localScale.x * ratio, cubes[0].transform.localScale.y, cubes[0].transform.localScale.z);
+            cubes[0].transform.position = new Vector3(0, -Camera.main.orthographicSize + (8.0f / 5.0f) * Camera.main.orthographicSize / 10, 0);
+            cubes[0].transform.localScale = new Vector3(cubes[0].transform.localScale.x * ratio * 1.2f, cubes[0].transform.localScale.y, cubes[0].transform.localScale.z);
             middleCube[0] = true;
-            cubes[1].transform.position = new Vector3(2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
-            cubes[1].transform.localScale = new Vector3(cubes[1].transform.localScale.x * ratio, cubes[1].transform.localScale.y, cubes[1].transform.localScale.z);
+            cubes[1].transform.position = new Vector3(2.0f * Camera.main.orthographicSize * ratio / 6.0f + Camera.main.orthographicSize / 30.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
+            cubes[1].transform.localScale = new Vector3(cubes[1].transform.localScale.x * ratio * 1.2f, cubes[1].transform.localScale.y, cubes[1].transform.localScale.z);
             middleCube[1] = false;
-            cubes[2].transform.position = new Vector3(-2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
-            cubes[2].transform.localScale = new Vector3(cubes[2].transform.localScale.x * ratio, cubes[2].transform.localScale.y, cubes[2].transform.localScale.z);
+            cubes[2].transform.position = new Vector3(-2.0f * Camera.main.orthographicSize * ratio / 6.0f - Camera.main.orthographicSize / 30.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
+            cubes[2].transform.localScale = new Vector3(cubes[2].transform.localScale.x * ratio * 1.2f, cubes[2].transform.localScale.y, cubes[2].transform.localScale.z);
             middleCube[2] = false;
         }
         else if (number == 5)
         {
             numberOfBalls = number;
             cubes[3].SetActive(true);
-            cubes[3].transform.position = new Vector3(2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
-            cubes[3].transform.localScale = new Vector3(cubes[3].transform.localScale.x * ratio, cubes[3].transform.localScale.y, cubes[3].transform.localScale.z);
+            cubes[3].transform.position = new Vector3(2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f + Camera.main.orthographicSize / 30.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
+            cubes[3].transform.localScale = new Vector3(cubes[3].transform.localScale.x * ratio * 1.2f, cubes[3].transform.localScale.y, cubes[3].transform.localScale.z);
             middleCube[3] = false;
             cubes[4].SetActive(true);
-            cubes[4].transform.position = new Vector3(-2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
-            cubes[4].transform.localScale = new Vector3(cubes[4].transform.localScale.x * ratio, cubes[4].transform.localScale.y, cubes[4].transform.localScale.z);
+            cubes[4].transform.position = new Vector3(-2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f - Camera.main.orthographicSize / 30.0f, -Camera.main.orthographicSize + Camera.main.orthographicSize / 10, 0);
+            cubes[4].transform.localScale = new Vector3(cubes[4].transform.localScale.x * ratio * 1.2f, cubes[4].transform.localScale.y, cubes[4].transform.localScale.z);
             middleCube[4] = false;
         }
     }
