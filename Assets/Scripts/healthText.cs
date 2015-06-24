@@ -6,6 +6,9 @@ public class healthText : MonoBehaviour {
     int health = 3;
     Text canvasHealth;
     public GameObject retryButton;
+    public GameObject BestText;
+    public GameObject HealthText;
+    public GameObject ScoreText;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +37,9 @@ public class healthText : MonoBehaviour {
         else
         {
             retryButton.SetActive(true);
+            BestText.SetActive(true);
+            HealthText.SetActive(true);
+            ScoreText.SetActive(true);
             Time.timeScale = 0;
             return true;
         }
