@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.Advertisements;
 
 public class init : MonoBehaviour {
-    int counter = 0;
+    int GamesTillNow = 0;
+    int GamesPerAd = 2;
 	// Use this for initialization
 	void Start () {
         if (GameObject.Find("Thing") != null)
@@ -19,9 +20,9 @@ public class init : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Time.timeSinceLevelLoad == 0)
-            counter++;
-        Debug.Log(counter);
-        if (counter % 2 == 0)
+            GamesTillNow++;
+        Debug.Log(GamesTillNow);
+        if (GamesTillNow % 2 == 0)
             showAd();
 	}
 

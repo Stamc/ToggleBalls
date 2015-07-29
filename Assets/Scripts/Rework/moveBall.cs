@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class moveBalls : MonoBehaviour {
+public class moveBall : MonoBehaviour {
     public float speed;
     public float duration = 4.0F;
     private float startTime;

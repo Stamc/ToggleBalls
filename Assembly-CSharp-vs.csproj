@@ -46,15 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\adjustCubes.cs" />
-     <Compile Include="Assets\Scripts\deathBall.cs" />
-     <Compile Include="Assets\Scripts\healthText.cs" />
-     <Compile Include="Assets\Scripts\highscoreText.cs" />
+     <Compile Include="Assets\Scripts\Rework\Manager.cs" />
+     <Compile Include="Assets\Scripts\Rework\Pillar.cs" />
+     <Compile Include="Assets\Scripts\Rework\ScoreHandler.cs" />
+     <Compile Include="Assets\Scripts\Rework\moveBall.cs" />
      <Compile Include="Assets\Scripts\init.cs" />
-     <Compile Include="Assets\Scripts\moveBalls.cs" />
      <Compile Include="Assets\Scripts\reloadLevel.cs" />
-     <Compile Include="Assets\Scripts\scoreText.cs" />
-     <Compile Include="Assets\Scripts\spawnBalls.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\unityads\build.xml" />
      <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
