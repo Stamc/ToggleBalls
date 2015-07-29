@@ -46,11 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Rework\Manager.cs" />
-     <Compile Include="Assets\Scripts\Rework\Pillar.cs" />
-     <Compile Include="Assets\Scripts\Rework\ScoreHandler.cs" />
-     <Compile Include="Assets\Scripts\Rework\moveBall.cs" />
+     <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\Scripts\Pillar.cs" />
+     <Compile Include="Assets\Scripts\ScoreHandler.cs" />
      <Compile Include="Assets\Scripts\init.cs" />
+     <Compile Include="Assets\Scripts\moveBall.cs" />
+     <Compile Include="Assets\Scripts\moveLife.cs" />
      <Compile Include="Assets\Scripts\reloadLevel.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\unityads\build.xml" />

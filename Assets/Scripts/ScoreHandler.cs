@@ -14,12 +14,22 @@ public class ScoreHandler : MonoBehaviour {
     public GameObject scoreSubtext;
 
     public GameObject retryButton;
-    
 
+
+    float ratio = (float)Screen.width / (float)Screen.height;
+    float[] lanes = new float[4];
+    public GameObject[] powerups = new GameObject[5];
+    public int ballsPerPowerup;
+    private int ballsSinceLastPowerup = 0;
     // Use this for initialization
     void Start()
     {
         GetStartingHighscore();
+
+        lanes[0] = 2.0f * Camera.main.orthographicSize * ratio / 6.0f + Camera.main.orthographicSize / 30.0f;
+        lanes[1] = -2.0f * Camera.main.orthographicSize * ratio / 6.0f - Camera.main.orthographicSize / 30.0f;
+        lanes[2] = 2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f + Camera.main.orthographicSize / 30.0f;
+        lanes[3] = -2.0f * 2.0f * Camera.main.orthographicSize * ratio / 6.0f - Camera.main.orthographicSize / 30.0f;
     }
 
     // Update is called once per frame
@@ -67,6 +77,17 @@ public class ScoreHandler : MonoBehaviour {
         }
         else
             Destroy(ball.gameObject);
+
+        if (lives < 3 && ballsSinceLastPowerup >= ballsPerPowerup)
+        {
+            SpawnLife();
+            ballsSinceLastPowerup = 0;
+        }
+    }
+
+    private void SpawnLife()
+    {
+        Instantiate(powerups[Random.Range(0, 4)], new Vector3(lanes[Random.Range(0, 4)], 6, 0), Quaternion.identity);
     }
 
     private void MoveLastBall(Transform ball)
@@ -87,6 +108,7 @@ public class ScoreHandler : MonoBehaviour {
 
     public void ReceiveInfo(Transform ball, GameObject pillar)
     {
+        ballsSinceLastPowerup++;
         if (ball.tag == pillar.tag)
         {
             UpdateScore(1);

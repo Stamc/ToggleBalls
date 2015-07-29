@@ -3,7 +3,7 @@ using System.Collections;
 
 public class moveBall : MonoBehaviour {
     public float speed;
-    public float duration = 4.0F;
+    //public float duration = 4.0F;
     private float startTime;
     float endScale = (float)Screen.width / Screen.height;
     void Start()
