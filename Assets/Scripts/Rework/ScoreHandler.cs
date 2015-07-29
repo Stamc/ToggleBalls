@@ -60,10 +60,20 @@ public class ScoreHandler : MonoBehaviour {
     {
         lives -= change;
         livesText.GetComponent<Text>().text = lives.ToString();
-        if(lives == 0)
+        if (lives == 0)
+        {
+            MoveLastBall(ball);
             ShowGameOverLay();
+        }
         else
             Destroy(ball.gameObject);
+    }
+
+    private void MoveLastBall(Transform ball)
+    {
+        Vector3 location = new Vector3(0,0, ball.transform.position.z);
+        Debug.Log("MoveLastBall: " + location + " trenutna: " + ball.transform.position + ball.name);
+        ball.transform.Translate(location);
     }
 
 

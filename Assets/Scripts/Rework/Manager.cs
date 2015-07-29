@@ -50,7 +50,7 @@ public class Manager : MonoBehaviour {
             counter++;
             gameTime = 0;
             ball = (GameObject)Instantiate(ballsPrefabs[Random.Range(0, numberOfBalls)], transform.position, Quaternion.identity);
-            ball.transform.localScale *= (float)Screen.width / Screen.height;
+            ball.transform.localScale *= 10;
             if (counter % ballsToSpeedIncrease == 0 && ballMoveSpeed <= maxBallSpeed)
             {
                 ballMoveSpeed += ballSpeedIncrease;
