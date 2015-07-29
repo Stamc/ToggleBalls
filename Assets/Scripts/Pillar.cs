@@ -18,6 +18,6 @@ public class Pillar : MonoBehaviour {
         GameObject.FindWithTag("ScoreHandler").transform.GetComponent<ScoreHandler>().ReceiveInfo(collision.transform, gameObject);
 
         if (collision.transform.tag != "life" && collision.transform.tag != transform.tag)
-            transform.position = new Vector2(0, transform.position.y - transform.localScale.y/4);
+            transform.position = new Vector2(0, transform.position.y - transform.localScale.y / 4);
     }
 }

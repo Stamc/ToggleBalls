@@ -68,7 +68,11 @@ public class ScoreHandler : MonoBehaviour {
 
     private void UpdateLives(int change, Transform ball)
     {
-        lives -= change;
+        ballsSinceLastPowerup = 0;
+        if(change == 1)
+            GameObject.FindWithTag("spawner").transform.GetComponent<Manager>().ToggleBallSpawning(true);
+
+        lives += change;
         livesText.GetComponent<Text>().text = lives.ToString();
         if (lives == 0)
         {
@@ -77,16 +81,11 @@ public class ScoreHandler : MonoBehaviour {
         }
         else
             Destroy(ball.gameObject);
-
-        if (lives < 3 && ballsSinceLastPowerup >= ballsPerPowerup)
-        {
-            SpawnLife();
-            ballsSinceLastPowerup = 0;
-        }
     }
 
     private void SpawnLife()
     {
+        GameObject.FindWithTag("spawner").transform.GetComponent<Manager>().ToggleBallSpawning(false);
         Instantiate(powerups[Random.Range(0, 4)], new Vector3(lanes[Random.Range(0, 4)], 6, 0), Quaternion.identity);
     }
 
@@ -108,16 +107,63 @@ public class ScoreHandler : MonoBehaviour {
 
     public void ReceiveInfo(Transform ball, GameObject pillar)
     {
-        ballsSinceLastPowerup++;
+        Debug.Log("lives before info: " + lives + " Balls since last powerup: " + ballsSinceLastPowerup);   
         if (ball.tag == pillar.tag)
         {
+            ballsSinceLastPowerup++;
             UpdateScore(1);
             Destroy(ball.gameObject);
         }
+        else if (ball.tag == "life")
+        {
+            switch (ball.name)
+            {
+                case "lifeGreen(Clone)":
+                    if(pillar.name == "Green")
+                        UpdateLives(1, ball);
+                    else
+                        GameObject.FindWithTag("spawner").transform.GetComponent<Manager>().ToggleBallSpawning(false);
+                    break;
+                case "lifeOrange(Clone)":
+                    if (pillar.name == "Orange")
+                        UpdateLives(1, ball);
+                    else
+                        GameObject.FindWithTag("spawner").transform.GetComponent<Manager>().ToggleBallSpawning(false);
+                    break;
+                case "lifeRed(Clone)":
+                    if (pillar.name == "Red")
+                        UpdateLives(1, ball);
+                    else
+                        GameObject.FindWithTag("spawner").transform.GetComponent<Manager>().ToggleBallSpawning(false);
+                    break;
+                case "lifePink(Clone)":
+                    if (pillar.name == "Pink")
+                        UpdateLives(1, ball);
+                    else
+                        GameObject.FindWithTag("spawner").transform.GetComponent<Manager>().ToggleBallSpawning(false);
+                    break;
+                case "lifeBlue(Clone)":
+                    if (pillar.name == "Blue")
+                        UpdateLives(1, ball);
+                    else
+                        GameObject.FindWithTag("spawner").transform.GetComponent<Manager>().ToggleBallSpawning(false);
+                    break;
+                default:
+                    break;
+            }
+            Destroy(ball.gameObject);
+            
+        }
         else
         {
-            UpdateLives(1, ball);
-            
+            ballsSinceLastPowerup++;
+            UpdateLives(-1, ball);
+        }
+
+        if (lives < 3 && ballsSinceLastPowerup >= ballsPerPowerup)
+        {
+            SpawnLife();
+            ballsSinceLastPowerup = 0;
         }
     }
 
